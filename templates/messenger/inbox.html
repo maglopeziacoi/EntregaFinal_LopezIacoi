@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Inbox</h1>
+    <p><a href="{% url 'messenger_compose' %}">Redactar mensaje</a></p>
+    {% if messages_ %}
+        <ul>
+        {% for m in messages_ %}
+            <li>
+                <a href="{% url 'messenger_detail' m.pk %}">
+                {% if not m.read %}<strong>(Nuevo)</strong>{% endif %}
+                {{ m.subject }} — de {{ m.sender }} — {{ m.sent_at|date:'d/m/Y H:i' }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p><em>No tenés mensajes</em></p>
+{% endif %}
+{% endblock %}

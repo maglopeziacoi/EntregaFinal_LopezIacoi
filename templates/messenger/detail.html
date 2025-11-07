@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>{{ msg.subject }}</h1>
+    <p><strong>De:</strong> {{ msg.sender }} — <strong>Fecha:</strong> {{ msg.sent_at|date:'d/m/Y H:i' }}</p>
+    <pre>{{ msg.body }}</pre>
+
+    <p style="margin-top:1rem;">
+        <a class="btn" href="{% url 'messenger_compose' %}?to={{ msg.sender.username }}&subject=Re: {{ msg.subject }}">
+            Responder
+        </a>
+    </p>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+    <h1>Bienvenido</h1>
+    <p>Este es tu Playground. Mirá las <a href="{% url 'page_list' %}">Pages</a> o contanos <a href="{% url 'about' %}">Acerca de mí</a>.</p>
+{% endblock %}

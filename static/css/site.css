@@ -1,0 +1,141 @@
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    background: #f5f6fa;
+    color: #222;
+}
+
+.container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.nav {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #141627;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+
+.nav a, .nav button {
+    color: #fff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity .2s ease;
+}
+
+.nav a:hover, .nav button:hover {
+    opacity: .7;
+}
+
+.nav .brand {
+    font-weight: 700;
+    font-size: 1.15rem;
+}
+
+    .nav .spacer {
+    flex: 1;
+}
+
+.btn, button[type="submit"] {
+    display: inline-block;
+    background: #3a6df0;
+    color: #fff !important;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.btn:hover, button[type="submit"]:hover {
+    background: #2a56cb;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.card {
+    border: 1px solid #e1e3eb;
+    border-radius: .85rem;
+    background: #fff;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.08);
+}
+.card img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+}
+.card h3 {
+    margin: .75rem 1rem .5rem;
+}
+
+.card p {
+    margin: 0 1rem 1rem;
+    color: #555;
+}
+
+.card a {
+    margin: 0 1rem 1rem;
+    font-weight: 500;
+}
+
+form input, form textarea, form select {
+    width: 100%;
+    padding: .55rem .75rem;
+    border: 1px solid #d2d6e1;
+    border-radius: .45rem;
+    margin-bottom: .75rem;
+    background: #fff;
+}
+form input:focus, form textarea:focus, form select:focus {
+    outline: 2px solid #3a6df0;
+    border-color: #3a6df0;
+}
+
+.header-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.messages li {
+    padding: .65rem .9rem;
+    margin: .5rem 0;
+    border-radius: .55rem;
+    background: #e8efff;
+    border-left: 4px solid #3a6df0;
+}
+
+body { font-family: 'Inter', system-ui, sans-serif; margin: 0; background: #fafafa; color: #222; }
+.container { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+.nav { display: flex; gap: 1.25rem; align-items: center; padding: 1rem 2rem; background: #0a0a23; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.25);}
+.nav a, .nav button { color: #fff; text-decoration: none; background: none; border: none; cursor: pointer; }
+.nav .brand { font-weight: 700; }
+.nav .spacer { flex: 1; }
+.messages { list-style: none; padding: 0; }
+.messages li { padding: .5rem .75rem; margin: .5rem 0; border-radius: .5rem; background: #eef; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.card { border: 1px solid #ddd; border-radius: .75rem; overflow: hidden; background: #fff; }
+.card img { width: 100%; height: 160px; object-fit: cover; }
+.card h3 { margin: .5rem .75rem; }
+.card p { margin: 0 .75rem 1rem; color: #444; }
+.card a.btn, .btn { display: inline-block; background: #0a7; color: #fff; padding: .5rem .75rem; border-radius: .5rem; }
+.header-row { display: flex; gap: 1rem; align-items: center; justify-content: space-between; }

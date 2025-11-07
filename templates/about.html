@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Acerca de mí{% endblock %}
+{% block content %}
+
+<div style="max-width:700px;margin:auto;text-align:center;padding:2rem 0;">
+
+    {% if request.user.is_authenticated %}
+        {% if request.user.profile.avatar %}
+            <img src="{{ request.user.profile.avatar.url }}" alt="avatar"
+                style="width:140px;height:140px;border-radius:50%;object-fit:cover;border:4px solid #3a6df0;">
+        {% endif %}
+
+        <h1>{{ request.user.get_full_name|default:request.user.username }}</h1>
+
+        <p>
+            <a href="{% url 'public_profile' request.user.username %}">
+                Ver mi perfil público →
+            </a>
+        </p>
+
+        {% if request.user.profile.bio %}
+            <p style="font-size:1.1rem;color:#555;margin:1rem 0;">
+                {{ request.user.profile.bio }}
+            </p>
+        {% else %}
+            <p style="color:#777;">(Sin biografía por ahora)</p>
+        {% endif %}
+
+        {% if request.user.profile.website %}
+            <p><a href="{{ request.user.profile.website }}" target="_blank" class="btn">Visitar mi web</a></p>
+        {% endif %}
+
+        <p style="margin-top:1.5rem;">
+            <a href="{% url 'profile_edit' %}" class="btn">Editar perfil</a>
+        </p>
+
+    {% else %}
+        <h1>Acerca de mí</h1>
+        <p>Este sitio pertenece a un usuario registrado.</p>
+        <a href="{% url 'login' %}" class="btn">Iniciar sesión</a>
+        o
+        <a href="{% url 'signup' %}" class="btn">Crear cuenta</a>
+    {% endif %}
+
+</div>
+
+{% endblock %}

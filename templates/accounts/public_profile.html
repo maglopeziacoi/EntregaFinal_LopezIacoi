@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Perfil de {{ profile_user.username }}{% endblock %}
+{% block content %}
+
+<div style="max-width:700px;margin:auto;text-align:center;padding:2rem 0;">
+    {% if profile_user.profile.avatar %}
+        <img src="{{ profile_user.profile.avatar.url }}" alt="avatar"
+             style="width:140px;height:140px;border-radius:50%;object-fit:cover;border:4px solid #3a6df0;margin-bottom:1rem;">
+    {% endif %}
+
+    <h1>{{ profile_user.get_full_name|default:profile_user.username }}</h1>
+
+    <p style="font-size:1.1rem;color:#555;margin:1rem 0;">
+        {{ profile_user.profile.bio|default:"Sin biografía." }}
+    </p>
+
+    {% if profile_user.profile.website %}
+        <p><a href="{{ profile_user.profile.website }}" class="btn" target="_blank">Visitar sitio</a></p>
+    {% endif %}
+</div>
+
+{% endblock %}

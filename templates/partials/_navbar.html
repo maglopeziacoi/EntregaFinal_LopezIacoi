@@ -1,0 +1,19 @@
+<nav class="nav">
+    <a href="/" class="brand">Playground</a>
+    <a href="{% url 'about' %}">Acerca de mí</a>
+    <a href="{% url 'page_list' %}">Pages</a>
+    <a href="{% url 'messenger_inbox' %}">Mensajes</a>
+
+
+    <span class="spacer"></span>
+    {% if user.is_authenticated %}
+        <a href="{% url 'profile' %}">Perfil</a>
+        <form action="{% url 'logout' %}" method="post" style="display:inline;">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+        {% else %}
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signup' %}">Signup</a>
+    {% endif %}
+</nav>

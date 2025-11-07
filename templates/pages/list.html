@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Pages{% endblock %}
+{% block content %}
+    <div class="header-row">
+        <h1>Pages</h1>
+        <form action="{% url 'page_search' %}" method="get">
+            <input type="text" name="q" value="{{ query|default:'' }}" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </form>
+        {% if user.is_authenticated %}
+            <a class="btn" href="{% url 'page_create' %}">Crear</a>
+        {% endif %}
+    </div>
+
+
+    {% if pages %}
+        <div class="grid">
+        {% for p in pages %}
+            <article class="card">
+            {% if p.image %}<img src="{{ p.image.url }}" alt="{{ p.title }}">{% endif %}
+            <h3>{{ p.title }}</h3>
+            <p>{{ p.summary }}</p>
+            <a href="{{ p.get_absolute_url }}">Leer más</a>
+            </article>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p><em>No hay páginas aún</em></p>
+{% endif %}
+{% endblock %}
